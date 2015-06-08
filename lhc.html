@@ -1,31 +1,46 @@
+<!DOCTYPE html>
+
+<!-- 
+  this page is part of a chain of pages:
+    cms-event.html -> 
+    cms-daq.html -> 
+    lhc.html -> 
+    cms-event.hmtl
+-->
+
 <html>
-<head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" charset="utf-8">
-var sites = [
-    "cms-daq.html",
-    "cms-event.html",
-    "cms-gridka.html",
-    "lhc.html"
-    ];
-var currentSite = sites.length - 1;
+    <head>
+        <title>LHC Status</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
 
-$(document).ready(function () {
-    $iframe = $("iframe").attr("src",sites[currentSite]);
+    <body>
+       <div style="color:#ffff66; background-color:#aaaaaa;"> 
+         <img src="cern_logo.png" style="width:75px; float:left;"/>
+         <img src="cms_logo.png"  style="width:75px; float:right;"/>
+        <script type="text/javascript">
+        document.write('<h1> &nbsp;  LHC and CMS </h1><h2><span id="date-time">', 
+        new Date().toLocaleString(), '&nbsp; </h2>')
+        if (document.getElementById) onload = function () {
+         setInterval("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50)
+          }
+        </script>
+        </div>
 
-    setInterval(function cycle() {
-      (currentSite == 0) ? currentSite = sites.length - 1 : currentSite = currentSite -1;
-      $("iframe").unbind()
-      $("iframe").remove()
-      $iframe = $("<iframe />");
-      $iframe.attr("src",sites[currentSite]);
-      $iframe.appendTo('body');
-      }, 30000);
-    });
-</script>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<iframe></iframe>
-</body>
+        <div>
+            <img src="http://vistar-capture.web.cern.ch/vistar-capture/lhc1.png" 
+               style="width:65%; height:auto; float:left;"/>
+        </div>
+        <div>
+            <img src="http://vistar-capture.web.cern.ch/vistar-capture/lhclumi.png" 
+               style="width:32%; height:auto; float:right;" />
+        </div>
+        <div>
+            <img src="http://cmspage1.web.cern.ch/cmspage1/data/page1.png" 
+               style="width:32%; height:auto; float:right;" />
+        </div>
+        
+    </body>
 </html>
+
+
