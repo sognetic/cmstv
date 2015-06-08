@@ -1,1 +1,31 @@
-lhc.html
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+var sites = [
+    "cms-daq.html",
+    "cms-event.html",
+    "cms-gridka.html",
+    "lhc.html"
+    ];
+var currentSite = sites.length - 1;
+
+$(document).ready(function () {
+    $iframe = $("iframe").attr("src",sites[currentSite]);
+
+    setInterval(function cycle() {
+      (currentSite == 0) ? currentSite = sites.length - 1 : currentSite = currentSite -1;
+      $("iframe").unbind()
+      $("iframe").remove()
+      $iframe = $("<iframe />");
+      $iframe.attr("src",sites[currentSite]);
+      $iframe.appendTo('body');
+      }, 30000);
+    });
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<iframe></iframe>
+</body>
+</html>
