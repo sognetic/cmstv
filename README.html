@@ -1,0 +1,49 @@
+<h1>Recent monitoring information from CERN</h1>
+
+<p>These pages are written to display newest displays and monitoring information from the current datataking period of the LHC at CERN.
+It is intended for showcases. To use it, just open <a href="start" title="Display">start</a> in a browser.</p>
+
+<h2>Clone your own repository</h2>
+
+<p>If you want to adapt this setup to your needs, just copy this
+folder to your webspace and work on it.
+Feedback and improvements are always welcome. Please contact <a href="&#109;&#97;&#x69;&#108;&#116;&#111;:&#106;&#x6F;&#114;&#97;&#109;&#46;b&#101;&#x72;&#103;&#101;&#114;&#64;&#107;&#x69;&#x74;&#46;e&#x64;&#x75;">&#106;&#x6F;&#114;&#97;&#109;&#46;b&#101;&#x72;&#103;&#101;&#114;&#64;&#107;&#x69;&#x74;&#46;e&#x64;&#x75;</a>.
+This information is generated from <code>README.md</code> using</p>
+
+<pre><code>    markdown README.md &gt; README.html
+</code></pre>
+
+<h2>Setup of Raspberry Pis as display stations</h2>
+
+<p>These steps lead you to a display station, based on a Raspberry Pie and a monitor, the</p>
+
+<ul>
+<li><p>Install <code>midori</code>, a lightweight browser with full screen mode accessible from the command line (others like <code>chromium</code> would also work):</p>
+
+<pre><code>sudo apt-get install midori
+</code></pre></li>
+<li><p>To start <code>midori</code> on boot and prevent the screen saver from showing up, add these lines to <code>/etc/xdg/lxsession/LXDE-pi/autostart</code>:</p>
+
+<pre><code>@xset s noblank
+@midori -e Fullscreen -a http://www-ekp.physik.uni-karlsruhe.de/~berger/cmstv/start
+</code></pre>
+
+<p>If the Raspberry Pi is not setup with NOOBS, the file is called <code>/etc/xdg/lxsession/LXDE/autostart</code>.</p></li>
+<li><p>To show the display only on working days from 7 a.m. to 8 p.m., add these lines to crontab (<code>crontab -e</code>):</p>
+
+<pre><code>0  7 * * 1-5 /usr/bin/xset dpms force on
+0 20 * * *   /usr/bin/xset dpms force off
+</code></pre></li>
+<li><p>If the screen resolution is not correct, these settings in <code>/boot/config.txt</code> might help:</p>
+
+<pre><code>disable_overscan=1
+hdmi_group=1
+hdmi_mode=31
+# commment out all overscan_bottom or _top etc.
+</code></pre></li>
+</ul>
+
+<p>Now it should be ready after reboot (no further interaction needed):</p>
+
+<pre><code>    sudo reboot
+</code></pre>

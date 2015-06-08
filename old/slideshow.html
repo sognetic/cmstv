@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><title>Eine Bilderslideshow</title>
+    <script type="text/javascript">
+        function fade(step) {
+            var imgs = document.getElementById("meinFader").getElementsByTagName("img");
+
+            step = step || 0;
+
+            imgs[counter].style.opacity = step/100;
+            imgs[counter].style.filter = "alpha(opacity=" + step + ")"; // 
+
+            step = step + 2;
+
+            if (step <= 100) {
+                window.setTimeout(function () { fade(step); }, 1);
+            } else {
+                window.setTimeout(next, 2000);
+            }
+        }
+
+        function next() {
+            var imgs = document.getElementById("meinFader").getElementsByTagName("img");
+
+            if (typeof(counter) != "number") {
+                counter = 0;
+            }
+
+            counter++;
+
+            if (counter < imgs.length) {
+                fade();
+            }
+        };
+    </script>
+    <style type="text/css">
+        .next { position: absolute; top: 0; left: 0; opacity: 0; filter:alpha(opacity=0); }
+        #meinFader { position: relative; }
+    </style>
+</head><body>
+    <h1>Eine Bilderslideshow</h1>
+    <p id="meinFader">
+        <img src="images/berge1.jpg" alt="">
+        <img src="images/berge2.jpg" alt="" class="next">
+        <img src="images/berge3.jpg" alt="" class="next">
+        <img src="images/berge4.jpg" alt="" class="next">
+        <img src="images/berge5.jpg" alt="" class="next">
+        <img src="images/berge6.jpg" alt="" class="next">
+    </p>
+    <p><a href="javascript:next()">Slideshow starten</a></p>
+</body></html>

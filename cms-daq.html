@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<!-- 
+  this page is part of a chain of pages:
+    cms-event.html -> 
+    cms-daq.html -> 
+    lhc.html -> 
+    cms-event.hmtl
+-->
+
+<html>
+    <head>
+        <meta HTTP-EQUIV=Refresh CONTENT="10;URL=lhc.html">
+        <!--                    next page to call is given here --> 
+        <title>CMS DAQ status</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        </head>
+
+    <body>
+       <div style="color:#ffff66; background-color:#aaaaaa;"> 
+        <img src="cern_logo.png" style="width:75px; float:left;"/>
+        <img src="cms_logo.png"  style="width:75px; float:right;"/>
+        <script type="text/javascript">
+        document.write('<h1> &nbsp;  CMS DAQ and GridKa </h1><h2><span id="date-time">', 
+        new Date().toLocaleString(), '&nbsp; </h2>')
+        if (document.getElementById) onload = function () {
+         setInterval("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50)
+          }
+        </script> 
+        </div>
+
+       <div> 
+         <img src="http://cmsonline.cern.ch/daqStatusSCX/aDAQmon/DAQstatusGre.jpg" 
+                  style="width:65%; height:auto; float:left"> 
+       </div>
+
+       <div> 
+         <img src="http://gridmon-kit.gridka.de/gridka-fileserver/graph.php?&r=day&g=dcache_report&vo=cms&rw=read&k=speed" 
+                  style="width:32%; height:auto; float:right;">
+       </div>
+
+       <div> 
+         <img src="http://ekphappyface.physik.uni-karlsruhe.de/upload/gridka/batch_efficiency.png" 
+                  style="width:32%; height:auto; float:right">
+       </div>
+
+    </body>
+</html>

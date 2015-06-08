@@ -1,0 +1,55 @@
+html {
+    height: 97%;
+    width: 97%;
+    text-align: center;
+}
+body {
+    background: #000;
+    margin: 0px;
+    height: 99.5%;
+    width: 99.5%;
+    text-align: center;
+}
+img {
+    padding: 0px;
+    width: auto;
+    max-width: 100%;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    object-fit: contain;
+}
+
+img.height90{
+    width: auto;
+    height: 90%;
+}
+
+img.four {
+    width: 49%;
+    height: 49%;
+}
+
+img.header_of_three {
+    width: 55%;
+    height:20%;
+    float:left;
+
+}
+img.main_of_three{    
+    width: 64%;
+    height: auto;
+    float:left;
+}
+img.one_of_three {
+    width: 32%;
+    height: auto;
+    float:right;
+}
+div {
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+    width: auto;
+    height: auto;
+}
