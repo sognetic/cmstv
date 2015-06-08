@@ -13,6 +13,16 @@ body {
     text-align: center;
 }
 
+.slideshow {
+    height: 100%;
+    width: 100%;
+    margin: auto
+}
+.slide {
+    height: 100%;
+    width: 100%;
+    margin: auto
+}
 iframe {
     height: 100%;
     width: 100%;
@@ -58,7 +68,6 @@ img.one_of_three {
 div {
     margin: 0px;
     padding: 0px;
-    display: inline;
     width: auto;
     height: auto;
 }
