@@ -5,10 +5,19 @@ html {
 }
 body {
     background: #000;
+    overflow: hidden;
+    padding: 0px;
     margin: 0px;
     height: 99.5%;
     width: 99.5%;
     text-align: center;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+    border: none;
+    overflow: hidden;
 }
 img {
     padding: 0px;
