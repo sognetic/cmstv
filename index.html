@@ -9,11 +9,27 @@
 $(document).ready(function() {
     setInterval("document.getElementById ('date-time').firstChild.data = new Date().toLocaleString()", 50);
     $('.slideshow').cycle({
-    fx: 'scrollLeft', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
-    speed: 1000,
-    timeout: 30000
+    fx: 'scrollLeft',
+    speed: 100,
+    timeout: 30000,
+    before: onBefore
   });
 });
+$(window).resize(function() {
+    var bodywidth = $(document).width();
+    $("#slide").width(bodywidth);
+});
+function onBefore(curr, next, opt) {
+    //currSlideElement.reload(true);
+    $('img', curr).each(function () {
+        var jqt = $(this);
+        var src = jqt.attr('src');
+        src = src.substr(0,(src.indexOf('?_ts') > 0) ? src.indexOf('?_ts') : src.length);
+        src += '?_ts=' + new Date().getTime();
+        jqt.attr('src',src);
+        //$(this).attr('src', $(this).attr('src') + '?'  + new Date().getTime());
+    });
+};
 </script>
 </head>
 <body>
@@ -58,9 +74,10 @@ $(document).ready(function() {
 
   <div class="slide">
     <div>
-      <img src="http://cmsonline.cern.ch/evtdisp/3D.png" style="height:80%; width:auto;"/>
+      <img src="http://cmsonline.cern.ch/evtdisp/3D.png" style="height:auto; width:100%;"/>
     </div>
   </div>
+
   <div class="slide">
     <div> 
       <img src="http://cmsonline.cern.ch/evtdisp/3D.png" 
@@ -68,12 +85,12 @@ $(document).ready(function() {
     </div>
 
     <div> 
-      <img src="http://gridmon-kit.gridka.de/gridka-fileserver/graph.php?&r=day&g=dcache_report&vo=cms&rw=read&k=speed" 
+      <img src="http://gridmon-kit.gridka.de/gridka-fileserver/graph.php?&r=day&g=dcache_report&vo=cms&rw=read&k=speed#" 
       style="width:32%; height:auto; float:right;">
     </div>
 
     <div> 
-      <img src="http://ekphappyface.physik.uni-karlsruhe.de/upload/gridka/batch_efficiency.png" 
+      <img src="http://ekphappyface.physik.uni-karlsruhe.de/upload/gridka/batch_efficiency.png#" 
       style="width:32%; height:auto;float:right">
     </div>
   </div>
