@@ -1,27 +1,30 @@
 html {
-    height: 97%;
-    width: 97%;
+    height: 98%;
+    width: 98%;
+    margin-left:auto;
+    margin-right:auto;
     text-align: center;
 }
+
 body {
     background: #000;
     overflow: hidden;
     padding: 0px;
     margin: 0px;
-    height: 99.5%;
-    width: 99.5%;
+    height: 100%;
+    width: 100%;
     text-align: center;
 }
 
 .slideshow {
     height: 100%;
     width: 100%;
-    margin: auto
+    margin: 0px
 }
 .slide {
     height: 100%;
     width: 100%;
-    margin: auto
+    margin: 0px
 }
 iframe {
     height: 100%;
