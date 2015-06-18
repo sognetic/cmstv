@@ -19,9 +19,12 @@ $(document).ready(function() {
       before: onBefore
   });
 });
-$(window).resize(function() {
+$( window ).resize(function() {
     var bodywidth = $(document).width();
-    $("#slide").width(bodywidth);
+    $(".slide").width(bodywidth);
+    //$(".slide").each(function() {
+    //  $(this).width(bodywidth);
+    //});
 });
 function onBefore(curr, next, opt) {
     //currSlideElement.reload(true);
