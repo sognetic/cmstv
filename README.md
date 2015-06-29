@@ -35,7 +35,9 @@ the cloned respository:
   If the Raspberry Pi is not setup with NOOBS, the file is called `/etc/xdg/lxsession/LXDE/autostart`.
 
 - To show the display only on working days from 7 a.m. to 8 p.m., add these lines to crontab (`crontab -e`). Again
-  check that the paths point to the checked out version of the cmstv repository:
+  check that the paths point to the checked out version of the cmstv repository. The start_cmstv.sh script will
+  startup the browser in kiosk mode and check every 5 minutes if the browser is still running. Midori e.g. had some
+  stability issues after running for a couple of days:
 
         0 7  *   *   1-5   /home/pi/cmstv/mon.sh on
         0 20 *   *   *     /home/pi/cmstv/mon.sh off
