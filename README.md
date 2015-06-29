@@ -14,7 +14,9 @@ This information is generated from `README.md` using
 
 ## Setup of Raspberry Pis as display stations
 
-These steps lead you to a display station, based on a Raspberry Pie and a monitor, the
+These steps lead you to a display station, based on a Raspberry Pie and a monitor.
+
+- Setup Raspbian on your Raspberry Pi using either NOOBS or the manual installation image.
 
 - Install `chromium`, a stable browser with full screen mode accessible from the command line:
 
