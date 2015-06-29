@@ -16,27 +16,28 @@ This information is generated from `README.md` using
 
 These steps lead you to a display station, based on a Raspberry Pie and a monitor, the
 
-- Install `midori`, a lightweight browser with full screen mode accessible from the command line (others like `chromium` would also work):
+- Install `chromium`, a stable browser with full screen mode accessible from the command line:
 
-        sudo apt-get install midori
+        sudo apt-get install chromium
+        
+- Clone the repository in your home folder:
 
-- To start `midori` on boot and prevent the screen saver from showing up, add these lines to `/etc/xdg/lxsession/LXDE-pi/autostart`:
+        git clone https://github.com/claria/cmstv.git
 
-        @xset s noblank
-        @midori -e Fullscreen -a http://www-ekp.physik.uni-karlsruhe.de/~berger/cmstv/start
+- To start the display on boot and prevent the screen saver from showing up, add these lines to `/etc/xdg/lxsession/LXDE-pi/autostart`. You may have to adapt the paths to the working copy of 
+the cloned respository:
+
+        @/home/pi/cmstv/mon.sh on
+        @/home/pi/cmstv/start_cmstv.sh
+
   If the Raspberry Pi is not setup with NOOBS, the file is called `/etc/xdg/lxsession/LXDE/autostart`.
 
-- To show the display only on working days from 7 a.m. to 8 p.m., add these lines to crontab (`crontab -e`):
+- To show the display only on working days from 7 a.m. to 8 p.m., add these lines to crontab (`crontab -e`). Again
+  check that the paths point to the checked out version of the cmstv repository:
 
-        0  7 * * 1-5 /usr/bin/xset dpms force on
-        0 20 * * *   /usr/bin/xset dpms force off
-
-- If the screen resolution is not correct, these settings in `/boot/config.txt` might help:
-
-        disable_overscan=1
-        hdmi_group=1
-        hdmi_mode=31
-        # commment out all overscan_bottom or _top etc.
+        0 8  *   *   1-5   /home/pi/cmstv/mon.sh on
+        0 20 *   *   *     /home/pi/cmstv/mon.sh off
+      */5 *  *   *   *     /home/pi/cmstv/start_cmstv.sh > /dev/null 
 
 Now it should be ready after reboot (no further interaction needed):
 
