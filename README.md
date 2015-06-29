@@ -37,7 +37,7 @@ the cloned respository:
 - To show the display only on working days from 7 a.m. to 8 p.m., add these lines to crontab (`crontab -e`). Again
   check that the paths point to the checked out version of the cmstv repository:
 
-        0 8  *   *   1-5   /home/pi/cmstv/mon.sh on
+        0 7  *   *   1-5   /home/pi/cmstv/mon.sh on
         0 20 *   *   *     /home/pi/cmstv/mon.sh off
       */5 *  *   *   *     /home/pi/cmstv/start_cmstv.sh > /dev/null 
 
