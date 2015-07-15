@@ -7,7 +7,7 @@ It is intended for showcases. To use it, just open <a href="start" title="Displa
 
 <p>If you want to adapt this setup to your needs, just copy this
 folder to your webspace and work on it.
-Feedback and improvements are always welcome. Please contact <a href="m&#x61;&#105;&#108;&#x74;o:&#x6A;&#111;&#114;a&#x6D;&#46;&#98;&#101;&#x72;g&#x65;&#x72;&#64;&#x6B;&#105;t&#x2E;&#101;&#x64;&#x75;">&#x6A;&#111;&#114;a&#x6D;&#46;&#98;&#101;&#x72;g&#x65;&#x72;&#64;&#x6B;&#105;t&#x2E;&#101;&#x64;&#x75;</a>.
+Feedback and improvements are always welcome. Please contact <a href="&#109;&#x61;&#x69;&#108;&#116;&#111;:&#x6A;&#111;&#114;&#97;&#109;&#x2E;&#98;&#x65;&#114;&#x67;&#101;&#x72;&#64;&#x6B;&#105;&#116;&#x2E;&#x65;&#100;&#117;">&#x6A;&#111;&#114;&#97;&#109;&#x2E;&#98;&#x65;&#114;&#x67;&#101;&#x72;&#64;&#x6B;&#105;&#116;&#x2E;&#x65;&#100;&#117;</a>.
 This information is generated from <code>README.md</code> using</p>
 
 <pre><code>    markdown README.md &gt; README.html
@@ -40,11 +40,10 @@ check that the paths point to the checked out version of the cmstv repository. T
 startup the browser in kiosk mode and check every 5 minutes if the browser is still running. Midori e.g. had some
 stability issues after running for a couple of days:</p>
 
-<pre><code>0 7  *   *   1-5   /home/pi/cmstv/mon.sh on
-0 20 *   *   *     /home/pi/cmstv/mon.sh off
-</code></pre>
-
-<p>*/5 *  *   *   *     /home/pi/cmstv/start_cmstv.sh > /dev/null </p></li>
+<pre><code>0    7  *  *  1-5   /home/pi/cmstv/mon.sh on
+0   20  *  *  *     /home/pi/cmstv/mon.sh off
+*/5  *  *  *  *     /home/pi/cmstv/start_cmstv.sh &gt; /dev/null
+</code></pre></li>
 </ul>
 
 <p>Now it should be ready after reboot (no further interaction needed):</p>

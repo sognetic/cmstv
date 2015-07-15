@@ -39,9 +39,9 @@ the cloned respository:
   startup the browser in kiosk mode and check every 5 minutes if the browser is still running. Midori e.g. had some
   stability issues after running for a couple of days:
 
-        0 7  *   *   1-5   /home/pi/cmstv/mon.sh on
-        0 20 *   *   *     /home/pi/cmstv/mon.sh off
-      */5 *  *   *   *     /home/pi/cmstv/start_cmstv.sh > /dev/null 
+        0    7  *  *  1-5   /home/pi/cmstv/mon.sh on
+        0   20  *  *  *     /home/pi/cmstv/mon.sh off
+        */5  *  *  *  *     /home/pi/cmstv/start_cmstv.sh > /dev/null
 
 Now it should be ready after reboot (no further interaction needed):
 
