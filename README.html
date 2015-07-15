@@ -7,7 +7,7 @@ It is intended for showcases. To use it, just open <a href="start" title="Displa
 
 <p>If you want to adapt this setup to your needs, just copy this
 folder to your webspace and work on it.
-Feedback and improvements are always welcome. Please contact <a href="&#109;&#97;&#x69;&#108;&#116;&#111;:&#106;&#x6F;&#114;&#97;&#109;&#46;b&#101;&#x72;&#103;&#101;&#114;&#64;&#107;&#x69;&#x74;&#46;e&#x64;&#x75;">&#106;&#x6F;&#114;&#97;&#109;&#46;b&#101;&#x72;&#103;&#101;&#114;&#64;&#107;&#x69;&#x74;&#46;e&#x64;&#x75;</a>.
+Feedback and improvements are always welcome. Please contact <a href="m&#x61;&#105;&#108;&#x74;o:&#x6A;&#111;&#114;a&#x6D;&#46;&#98;&#101;&#x72;g&#x65;&#x72;&#64;&#x6B;&#105;t&#x2E;&#101;&#x64;&#x75;">&#x6A;&#111;&#114;a&#x6D;&#46;&#98;&#101;&#x72;g&#x65;&#x72;&#64;&#x6B;&#105;t&#x2E;&#101;&#x64;&#x75;</a>.
 This information is generated from <code>README.md</code> using</p>
 
 <pre><code>    markdown README.md &gt; README.html
@@ -15,32 +15,36 @@ This information is generated from <code>README.md</code> using</p>
 
 <h2>Setup of Raspberry Pis as display stations</h2>
 
-<p>These steps lead you to a display station, based on a Raspberry Pie and a monitor, the</p>
+<p>These steps lead you to a display station, based on a Raspberry Pie and a monitor.</p>
 
 <ul>
-<li><p>Install <code>midori</code>, a lightweight browser with full screen mode accessible from the command line (others like <code>chromium</code> would also work):</p>
+<li><p>Setup Raspbian on your Raspberry Pi using either NOOBS or the manual installation image.</p></li>
+<li><p>Install <code>chromium</code>, a stable browser with full screen mode accessible from the command line:</p>
 
-<pre><code>sudo apt-get install midori
+<pre><code>sudo apt-get install chromium
 </code></pre></li>
-<li><p>To start <code>midori</code> on boot and prevent the screen saver from showing up, add these lines to <code>/etc/xdg/lxsession/LXDE-pi/autostart</code>:</p>
+<li><p>Clone the repository in your home folder:</p>
 
-<pre><code>@xset s noblank
-@midori -e Fullscreen -a http://www-ekp.physik.uni-karlsruhe.de/~berger/cmstv/start
+<pre><code>git clone https://github.com/claria/cmstv.git
+</code></pre></li>
+<li><p>To start the display on boot and prevent the screen saver from showing up, add these lines to <code>/etc/xdg/lxsession/LXDE-pi/autostart</code>. You may have to adapt the paths to the working copy of 
+the cloned respository:</p>
+
+<pre><code>@/home/pi/cmstv/mon.sh on
+@/home/pi/cmstv/start_cmstv.sh
 </code></pre>
 
 <p>If the Raspberry Pi is not setup with NOOBS, the file is called <code>/etc/xdg/lxsession/LXDE/autostart</code>.</p></li>
-<li><p>To show the display only on working days from 7 a.m. to 8 p.m., add these lines to crontab (<code>crontab -e</code>):</p>
+<li><p>To show the display only on working days from 7 a.m. to 8 p.m., add these lines to crontab (<code>crontab -e</code>). Again
+check that the paths point to the checked out version of the cmstv repository. The start_cmstv.sh script will
+startup the browser in kiosk mode and check every 5 minutes if the browser is still running. Midori e.g. had some
+stability issues after running for a couple of days:</p>
 
-<pre><code>0  7 * * 1-5 /usr/bin/xset dpms force on
-0 20 * * *   /usr/bin/xset dpms force off
-</code></pre></li>
-<li><p>If the screen resolution is not correct, these settings in <code>/boot/config.txt</code> might help:</p>
+<pre><code>0 7  *   *   1-5   /home/pi/cmstv/mon.sh on
+0 20 *   *   *     /home/pi/cmstv/mon.sh off
+</code></pre>
 
-<pre><code>disable_overscan=1
-hdmi_group=1
-hdmi_mode=31
-# commment out all overscan_bottom or _top etc.
-</code></pre></li>
+<p>*/5 *  *   *   *     /home/pi/cmstv/start_cmstv.sh > /dev/null </p></li>
 </ul>
 
 <p>Now it should be ready after reboot (no further interaction needed):</p>
