@@ -36,6 +36,7 @@ the cloned respository:
   If the Raspberry Pi is not setup with NOOBS, the file is called `/etc/xdg/lxsession/LXDE/autostart`.
 
   If the screen is blank after waking up, try adding the following setting to `/etc/rc.local`.
+
         # disable console blanking for CMS-TV usage
         setterm -blank 0 -powersave off -powerdown 0 
 
