@@ -18,13 +18,14 @@ These steps lead you to a display station, based on a Raspberry Pie and a monito
 
 - Setup Raspbian on your Raspberry Pi using either NOOBS or the manual installation image.
 
-- Install `chromium`, a stable browser with full screen mode accessible from the command line:
+- Install `chromium`, a stable browser with full screen mode accessible from the command line. Also
+  install the Microsoft ttf fonts.:
 
-        sudo apt-get install chromium
+        sudo apt-get install chromium ttf-mscorefonts-installer
         
 - Clone the repository in your home folder:
 
-        git clone https://github.com/claria/cmstv.git
+        git clone https://github.com/JoramBerger/cmstv.git
 
 - To start the display on boot and prevent the screen saver from showing up, add these lines to `/etc/xdg/lxsession/LXDE-pi/autostart`. You may have to adapt the paths to the working copy of 
 the cloned respository:
@@ -33,6 +34,10 @@ the cloned respository:
         @/home/pi/cmstv/start_cmstv.sh
 
   If the Raspberry Pi is not setup with NOOBS, the file is called `/etc/xdg/lxsession/LXDE/autostart`.
+
+  If the screen is blank after waking up, try adding the following setting to `/etc/rc.local`.
+        # disable console blanking for CMS-TV usage
+        setterm -blank 0 -powersave off -powerdown 0 
 
 - To show the display only on working days from 7 a.m. to 8 p.m., add these lines to crontab (`crontab -e`). Again
   check that the paths point to the checked out version of the cmstv repository. The start_cmstv.sh script will
