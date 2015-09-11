@@ -3,7 +3,7 @@
 PIDFILE="/tmp/cmstv.pid"
 #COMMAND="http://www-ekp.physik.uni-karlsruhe.de/~sieber/cmstv/start"
 COMMAND="index.html"
-DISPLAY=":0"
+export DISPLAY=":0.0"
 #Folder in which the script is
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
