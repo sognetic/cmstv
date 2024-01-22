@@ -4,7 +4,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>LHC and CMS Status</title>
+    <title>CMS@CERN, BElle II@KEK & ETP</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="jquery.cycle.all.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -14,69 +14,123 @@
     <div class="main-container">
       <div class="header"> 
         <img src="cern_logo.png" style="width:75px;height:75px; float:left;"/>
+        <img src="kek_logo_invert.png" style="width:75px;height:75px; float:left;"/>
+        <img src="belle2_logo_bw.png"  style="max-width:75px;height:75px; float:right;"/>
         <img src="cms_logo_bw.png"  style="max-width:75px;height:75px; float:right;"/>
-        <h1> &nbsp;  LHC and CMS </h1><h2><span id="date-time"> &nbsp; </h2>
+        <h1> &nbsp; CMS@CERN, Belle II@KEK & ETP </h1><h2><span id="date-time"> &nbsp; </h2>
       </div>
 
       <div class="slideshow">
+
+	<!-- LHC Status -->
+<!--
 	<div class="slide">
           <div>
             <img class="slide-img" src="http://vistar-capture.web.cern.ch/vistar-capture/lhc1.png" 
-                 style="max-width:63vw;float:left"/>
+                 style="width:62%; float:left"/>
+            <img class="slide-img_2" src="http://vistar-capture.web.cern.ch/vistar-capture/lhclumi.png" 
+                 style="width:32%; height:auto; border-right:1%; float:right; float:top" />
+            <img class="slide-img" src="http://cmspage1.web.cern.ch/cmspage1/data/page1.png" 
+                 style="width:32%; height:auto; border-right:1%; float:right; float:bottom;" />
+          </div>
+        </div>
+<!--  -->       
+
+        <!-- CMS Event Display -->
+        <div class="slide">
+          <div>
+            <img class="slide-img"
+		 src="http://cmsonline.cern.ch/evtdisp/3DTower.png"
+		 style="width:98%;"/>
+          </div>
+        </div>
+<!--  -->       
+
+        <!-- CMS DAQ history -->
+	<div class="slide">
+          <div>
+            <img class="slide-img"
+		 src="http://cmsonline.cern.ch/daqStatusSCX/aDAQmon/DAQstatusGre.jpg"
+		 style="width:95%;"/>
+          </div>
+        </div>
+<!--  -->       
+
+        <!-- GridKa -->
+	<div class="slide">
+          <div>
+          <!-- GridKa Logo -->
+            <img class="slide-img" 
+               src="GridKaLogo.png"
+               style="width:20%; height:auto; border-left:3%; border-right:3%; 
+               float:left; float:top;" />		 
+          <!-- jobs per VO last day -->
+            <img class="slide-img" 
+               src="http://gridmon-kit.gridka.de/gridka-adminserver/graph.php?g=publicscreen_running_lrms_htc_1&r=day&z=middle"
+               style="width:50%; height:auto; border-left:3%; border-right:3%; 
+		      float:center; float:top;" />	    
+            <!-- Network to cores-->
+            <img class="slide-img" 
+              src="https://gridmon-kit.gridka.de/gridka-computenodes/graph.php?me=GridKa%20Compute-Nodes&m=&r=day&s=by%20hostname&hc=4&g=network_report&z=medium&r=hour"
+               style="width:28.5%; height:auto; border-left:3%; border-right:3%; 
+               float:right; float:top;" />		 
+
+	    <!-- running last hour -->
+            <img class="slide-img" 
+	      src="https://gridmon-kit.gridka.de/gridka-adminserver/graph.php?g=publicscreen_running_lrms_htc_1&r=100_days&z=middle"
+               style="width:35%; height:auto; border-left:3%; border-right:3%; 
+               float:left; float:bottom;" />		 
+            <!-- queued jobs per VO last hour -->
+            <img class="slide-img" 
+               src="http://gridmon-kit.gridka.de/gridka-adminserver/graph.php?g=publicscreen_queued_lrms_htc_1&r=hour&z=middle"
+               style="width:35%; height:auto; border-left:3%; border-right:3%; 
+               float:center; float:bottom;" />		 
+            <!-- network -->
+            <img class="slide-img" 
+              src="https://gridmon-kit.gridka.de/gridka-fileserver/graph.php?me=GridKa%20file-Server&m=&r=hour&s=by%20hostname&hc=4&g=network_report&z=medium&r=hour"
+               style="width:28.5%; height:auto; border-left:3%; border-right:3%; 
+               float:right; float:bottom;" />	    
+	  </div>
+        </div>
+<!--  -->       
+	
+        <!-- Belle II -->
+        <div class="slide">
+          <div>
+            <img class="slide-img" src="http://ekpwww.etp.kit.edu/~mbauer/evdisp/3D.png"
+               style="max-width:63vw;float:left"/>
           </div>
           <div>
-            <img class="slide-img_2" src="http://vistar-capture.web.cern.ch/vistar-capture/lhclumi.png" 
+            <img class="slide-img_2" src="http://ekpwww.etp.kit.edu/~mbauer/evdisp/RPhi.png"
                  style="max-width:31vw;float:top" />
           </div>
           <div>
-            <img class="slide-img" src="http://cmspage1.web.cern.ch/cmspage1/data/page1.png" 
-                 style="max-width:31vw;float:bottom;" />
+            <img class="slide-img" src="http://ekpwww.etp.kit.edu/~mbauer/evdisp/RhoZ.png"
+               style="max-width:31vw;float:bottom;" />
           </div>
-        </div>
-        
-        <div class="slide">
-          <div> 
-            <img class="slide-img" src="http://cmsonline.cern.ch/daqStatusSCX/aDAQmon/DAQstatusGre.jpg" 
-                 style="max-width:63vw;float:left"> 
-          </div>
+	</div>
+<!--  -->       
 
-          <div> 
-            <img class="slide-img" src="http://gridmon-kit.gridka.de/gridka-fileserver/graph.php?&r=day&g=dcache_report&vo=cms&rw=read&k=speed" 
-                 style="max-width:31vw;float:top;">
-          </div>
-
-          <div> 
-            <img class="slide-img" src="http://ekphappyface.physik.uni-karlsruhe.de/upload/gridka/batch_efficiency.png" 
-                 style="max-width:31vw;float:bottom">
-          </div>
-        </div>
-        <div class="slide">
-
-        <div class="slide">
-          <div>
-            <img class="slide-img" src="http://cmsonline.cern.ch/evtdisp/3DTower.png" style="max-width:100vw;"/>
-          </div>
-        </div>
-
-        <div class="slide">
-          <div> 
-            <img class="slide-img" src="http://cmsonline.cern.ch/evtdisp/3DTower.png" 
-                 style="max-width:63vw;float:left">
-          </div>
-
-          <div> 
-            <img class="slide-img" src="http://gridmon-kit.gridka.de/gridka-fileserver/graph.php?&r=day&g=dcache_report&vo=cms&rw=read&k=speed#" 
-                 style="max-width:31vw;float:top;">
-          </div>
-
-          <div> 
-            <img class="slide-img" src="http://ekphappyface.physik.uni-karlsruhe.de/upload/gridka/batch_efficiency.png#" 
-                 style="max-width:31vw;float:bottom">
-          </div>
-        </div>
-
-
-      </div>
+	
+      </div> <!-- class slideshow -->
     </div>
   </body>
 </html>
+
+
+<!-- links:
+
+## event display 2d proj.
+src="https://cmsonline.cern.ch/webcenter/portal/cmsonline/pages_common/eventdisplay/station41"
+
+## daq history
+src="https://cmsonline.cern.ch/webcenter/portal/cmsonline/pages_common/daq"
+
+## gridka 
+src="https://grafana-sdm.scc.kit.edu/d/jEtLX97mz/gridka-overview?orgId=1&refresh=30m"
+
+## Belle II eventdisplay:
+https://evdisp.belle2.org/
+
+
+-->
